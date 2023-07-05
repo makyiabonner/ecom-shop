@@ -1,0 +1,12 @@
+@import '../styles/variables.scss';
+
+$theme-colors:(
+  "primary":    $brand-primary,
+  "secondary":  $brand-secondary,
+  "info":       $brand-info,
+  "warning":    $brand-warning,
+  "danger":     $brand-danger,
+  "dark":       $brand-dark
+);
+
+@import 'bootstrap/scss/bootstrap.scss';
