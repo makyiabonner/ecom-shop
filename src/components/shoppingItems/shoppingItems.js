@@ -3,14 +3,28 @@ import { useState, useEffect } from 'react';
 
 export function ItemsByCategory(props) {
   const [items, setItems] = useState([]);
+  const [option, setOption] = useState('');
+
 
   const category = props.category;
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
       .then((res) => res.json())
-      .then((json) => setItems(json));
-  }, [category]);
+      .then((json) => {
+        let sortedJson = json
+        if(option === 'Low to High'){
+          sortedJson = json.sort((a,b) => a.price - b.price)
+        } else if(option === 'High to Low'){
+          sortedJson = json.sort((a,b) => b.price - a.price)
+        }
+        setItems(sortedJson)
+      });
+  }, [category, option]);
+  
+  const handleSortChange = (event) => {
+    setSortOption(event.target.value);
+  };
 
   return (
     <>

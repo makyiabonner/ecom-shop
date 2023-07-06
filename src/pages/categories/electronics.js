@@ -8,17 +8,6 @@ import SortedData from '@/components/sortData/sortData';
 export default function Category(){
 
     return (
-        <>
-          <NewNav/>
-          <SortedData/>
-          <main className={styles.main}>
-            <div className={styles.containerMain}>
-              <h1 className={styles.h1}>Jewelery Collection</h1>
-              <div className={styles.div}>
-                <ItemsByCategory category='jewelery'/>
-              </div>
-            </div>
-          </main>
-        </>
+          <SortedData category = 'electronics'/>
       )
 }
