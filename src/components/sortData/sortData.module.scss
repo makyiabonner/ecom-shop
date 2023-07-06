@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.dropdown{
+    background-color: rgb(241, 241, 241);
+    border-radius: 2px;
+    width:200px;
+    height:50px;
+    display: flex;
+    align-items: center;
+}
+.sortNav{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding:20px;
+    background-color: $brand-info;
+}
+.section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+}
