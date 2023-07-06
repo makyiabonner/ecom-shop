@@ -1,0 +1,23 @@
+@import '../../styles/variables.scss';
+
+.img{
+    height:300px;
+    width: 250px;
+    background-color: black;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+.prices{
+    background-color: black;
+    color:white;
+    margin-top:10px;
+    width:fit-content;
+    padding:3px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 900;
+}

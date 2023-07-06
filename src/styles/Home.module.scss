@@ -1,9 +1,21 @@
 @import "../styles/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap');
 
+
+.h1{
+    color: black;
+    text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 0.25rem;
+    text-decoration: none;
+    font-family: 'Just Me Again Down Here', cursive;
+    margin: 80px auto;
+}
 .main{
     background-color: $brand-info;
     width: 100%;
-    height:400px;
+    height:100%;
     display: flex;
     justify-content: center;
 }
@@ -11,6 +23,13 @@
     width: 85%;
     height: 100%;
     background-color: white;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.div{
     display:grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(3,1fr);
+    gap: 130px;
 }
