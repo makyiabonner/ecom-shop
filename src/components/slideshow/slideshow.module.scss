@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+.slide0, .slide1, .slide2{
+    height: 600px;
+    width:100%;
+}
+.slide0{
+    background-color: $brand-warning;
+}
+.slide1{
+    background-color: $brand-info;
+}
+.slide2{
+    background-color: $brand-primary;
+}
