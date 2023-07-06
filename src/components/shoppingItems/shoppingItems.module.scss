@@ -3,7 +3,9 @@
 .img{
     height:300px;
     width: 250px;
-    background-color: black;
+    border: 5px solid rgba($color: #000000, $alpha: .5);
+    padding:20px;
+
 }
 .container{
     display: flex;
@@ -11,12 +13,9 @@
     width: 300px;
 }
 .prices{
-    background-color: black;
-    color:white;
+    color:black;
     margin-top:10px;
-    width:fit-content;
     padding:3px;
-    border-radius: 5px;
     font-size: 20px;
     font-style: italic;
     font-weight: 900;

@@ -12,7 +12,7 @@ export default function Home() {
       <NewNav/>
       <Slideshow/>
       <main className={styles.main}>
-        <div className={styles.container}>
+        <div className={styles.containerMain}>
           <h1 className={styles.h1}>RoSCos Collection</h1>
           <div className={styles.div}>
             <Items/>
