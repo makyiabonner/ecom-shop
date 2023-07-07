@@ -53,6 +53,7 @@ export default function SortedData(props) {
                   <div key={obj.id} className={itemStyles.container}>
                   <img
                     className={itemStyles.img}
+                    loading="eager"
                     src={obj.image}
                     alt={obj.description}
                   />
