@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 export default function ViewItem() {
   const [items, setItems] = useState([]);
   const [recommended, setRecommended] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
   const router = useRouter();
 
   useEffect(() => {
@@ -17,16 +19,40 @@ export default function ViewItem() {
       });
   }, []);
 
-  const selectedItemId = Number(router.pathname.match(/\d+/g).join(''));
-  const selectedItem = items.find((item) => item.id === Number(selectedItemId));
-
   useEffect(() => {
     if (items.length > 0) {
-        let similar = items.filter((item) => item.category === selectedItem.category)
-      const recommendedItems = similar.slice(0, 4);
-      setRecommended(recommendedItems);
+      const selectedItemId = Number(router.pathname.match(/\d+/g).join(''));
+      const selectedItem = items.find((item) => item.id === selectedItemId);
+
+      if (selectedItem) {
+        const similarItems = items.filter((item) => item.category === selectedItem.category);
+        const recommendedItems = similarItems.slice(0, 4);
+        setRecommended(recommendedItems);
+      }
     }
-  }, [items]);
+  }, [items, router.pathname]);
+
+  const addToCart = (item) => {
+    const existingItem = cart.find((cartItem) => cartItem.item.id === item.id);
+
+    if (existingItem) {
+      const updatedCart = cart.map((cartItem) =>
+        cartItem.item.id === item.id
+          ? { ...cartItem, quantity: cartItem.quantity + selectedQuantity }
+          : cartItem
+      );
+      setCart(updatedCart);
+    } else {
+      setCart([...cart, { item, quantity: selectedQuantity }]);
+    }
+  };
+
+  const handleQuantityChange = (event) => {
+    setSelectedQuantity(parseInt(event.target.value));
+  };
+
+  const selectedItemId = Number(router.pathname.match(/\d+/g).join(''));
+  const selectedItem = items.find((item) => item.id === selectedItemId);
 
   return (
     <>
@@ -51,13 +77,12 @@ export default function ViewItem() {
                     </div>
                   </div>
                   <div>
-                    <button className={styles.button}>ADD CART</button>
-                    <select className={styles.qtyButton}>
-                      <option>QTY</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
+                    <button className={styles.button} onClick={() => addToCart(selectedItem)}>ADD CART</button>
+                    <select className={styles.qtyButton} onChange={handleQuantityChange}>
+                      <option value="1">QTY: 1</option>
+                      <option value="2">QTY: 2</option>
+                      <option value="3">QTY: 3</option>
+                      <option value="4">QTY: 4</option>
                     </select>
                   </div>
                 </div>
@@ -68,18 +93,18 @@ export default function ViewItem() {
         <container className={styles.container2}>
           <h1 className={styles.h1}>Recommended Items</h1>
           <section className={styles.gridSection}>
-            {recommended.map((obj) => (
-                <a  className={styles.a} href={`/products/${obj.id}`}>
-                    <div key={obj.id} className={itemStyles.container}>
-                        <img
-                        className={itemStyles.img}
-                        src={obj.image}
-                        alt={obj.description}
-                        />
-                        <p className={itemStyles.prices}>{`$${obj.price}`}</p>
-                        <span className={itemStyles.desc}>{obj.title}</span>
-                    </div>
-                </a>
+            {recommended.map((recommendedItem) => (
+              <a href={`/products/${recommendedItem.id}`} key={recommendedItem.id} className={styles.a}>
+                <div className={itemStyles.container}>
+                  <img
+                    src={recommendedItem.image}
+                    alt={recommendedItem.description}
+                    className={itemStyles.img}
+                  />
+                  <p className={itemStyles.prices}>{`$${recommendedItem.price}`}</p>
+                  <span className={itemStyles.desc}>{recommendedItem.title}</span>
+                </div>
+              </a>
             ))}
           </section>
         </container>
@@ -87,3 +112,4 @@ export default function ViewItem() {
     </>
   );
 }
+
