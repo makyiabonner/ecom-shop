@@ -58,3 +58,17 @@
 .a{
     text-decoration: none;
 }
+.cartNum{
+    align-self: flex-end;
+    color: white;
+    font-weight: bold;
+    font-size: 23px;
+}
+.cartDiv{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    gap:5px;
+}

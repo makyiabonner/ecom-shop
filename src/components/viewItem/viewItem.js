@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import itemStyles from '@/components/shoppingItems/shoppingItems.module.scss';
 import { useRouter } from "next/router";
 
+
 export default function ViewItem() {
   const [items, setItems] = useState([]);
   const [recommended, setRecommended] = useState([]);
@@ -46,7 +47,7 @@ export default function ViewItem() {
       setCart([...cart, { item, quantity: selectedQuantity }]);
     }
   };
-
+  console.log(cart)
   const handleQuantityChange = (event) => {
     setSelectedQuantity(parseInt(event.target.value));
   };
@@ -56,7 +57,7 @@ export default function ViewItem() {
 
   return (
     <>
-      <NewNav />
+      <NewNav cart = {cart} />
       <main className={styles.topDiv}>
         <container className={styles.container}>
           {selectedItem && (
