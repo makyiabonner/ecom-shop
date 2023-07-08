@@ -50,16 +50,18 @@ export default function SortedData(props) {
             <h1 className={styles.h1}>{`${category} Collection`}</h1>
             <div className={styles.div}>
                 {items.map((obj) => (
-                  <div key={obj.id} className={itemStyles.container}>
-                  <img
-                    className={itemStyles.img}
-                    loading="eager"
-                    src={obj.image}
-                    alt={obj.description}
-                  />
-                  <p className={itemStyles.prices}>{`$${obj.price}`}</p>
-                  <span className={itemStyles.desc}>{obj.title}</span>
-                </div>
+                  <a href={`/products/${obj.id}`}>
+                    <div key={obj.id} className={itemStyles.container}>
+                    <img
+                      className={itemStyles.img}
+                      loading="eager"
+                      src={obj.image}
+                      alt={obj.description}
+                    />
+                    <p className={itemStyles.prices}>{`$${obj.price}`}</p>
+                    <span className={itemStyles.desc}>{obj.title}</span>
+                    </div>
+                  </a>
                 ))}
             </div>
           </div>

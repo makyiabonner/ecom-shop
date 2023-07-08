@@ -16,11 +16,13 @@ export default function Items() {
     return (
       <>
         {items.map((obj) => (
-          <div key={obj.id} className={styles.container}>
-              <img className={styles.img} src={obj.image} alt={obj.description} />
-            <p className={styles.prices}>{`$${obj.price}`}</p>
-            <span className={styles.desc}>{obj.title}</span>
-          </div>
+          <a href={`/products/${obj.id}`}>
+            <div key={obj.id} className={styles.container}>
+                <img className={styles.img} src={obj.image} alt={obj.description} />
+              <p className={styles.prices}>{`$${obj.price}`}</p>
+              <span className={styles.desc}>{obj.title}</span>
+            </div>
+          </a>
         ))}
       </>
     );
