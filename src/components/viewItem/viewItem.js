@@ -17,15 +17,16 @@ export default function ViewItem() {
       });
   }, []);
 
+  const selectedItemId = Number(router.pathname.match(/\d+/g).join(''));
+  const selectedItem = items.find((item) => item.id === Number(selectedItemId));
+
   useEffect(() => {
     if (items.length > 0) {
-      const recommendedItems = items.slice(0, 4);
+        let similar = items.filter((item) => item.category === selectedItem.category)
+      const recommendedItems = similar.slice(0, 4);
       setRecommended(recommendedItems);
     }
   }, [items]);
-
-  const selectedItemId = router.pathname.slice(-1);
-  const selectedItem = items.find((item) => item.id === Number(selectedItemId));
 
   return (
     <>
