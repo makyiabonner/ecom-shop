@@ -68,7 +68,7 @@ export default function ViewItem() {
           <h1 className={styles.h1}>Recommended Items</h1>
           <section className={styles.gridSection}>
             {recommended.map((obj) => (
-                <a href={`/products/${obj.id}`}>
+                <a  className={styles.a} href={`/products/${obj.id}`}>
                     <div key={obj.id} className={itemStyles.container}>
                         <img
                         className={itemStyles.img}
