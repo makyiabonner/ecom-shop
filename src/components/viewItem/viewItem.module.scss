@@ -1,0 +1,82 @@
+@import '../../styles/variables.scss';
+
+.topDiv,
+.shopMenu,
+.container,
+.container2
+.rightSideMenu{
+    display: flex;
+}
+.topDiv,
+.container,
+.container2,
+.rightSideMenu{
+    flex-direction: column;
+}
+.rightSideMenu,
+.shopMenu{
+    justify-content: space-between;
+}
+.h3,
+.button{
+    font-weight: bold;
+}
+.h1,
+.prices{
+    font-weight: 900;
+    font-style:italic;
+}
+.img{
+    width:600px;
+    height:650px;
+    background-color: $brand-info;
+}
+.h3{
+    font-size: 25px;
+}
+.button{
+    background-color: $brand-primary;
+    color:$brand-secondary;
+    border:none;
+    padding: 5px 20px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.topDiv{
+    align-items: center;
+    padding:40px;
+}
+.shopMenu{
+    flex-direction: row;
+    margin-top:28px;
+    width: 100%;
+}
+.container,.container2{
+    width:80%;
+}
+.leftSideMenu{
+    width: 100%;
+    margin-right: 30px;
+}
+.rightSideMenu{
+    align-items: flex-start;
+    width: 100%;
+}
+.description{
+    width:50%;
+    height: 250px;
+}
+.qtyButton{
+    width:150px;
+    height:100%;
+    border-radius: 5px;
+    margin-left: 12px;
+}
+.container2{
+    margin: 100px 0px;
+}
+.gridSection{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top:28px;
+}
