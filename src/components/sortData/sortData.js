@@ -47,12 +47,13 @@ export default function SortedData(props) {
         </div>
         <main className={styles.main}>
           <div className={styles.containerMain}>
-            <h1 className={styles.h1}>Jewelry Collection</h1>
+            <h1 className={styles.h1}>{`${category} Collection`}</h1>
             <div className={styles.div}>
                 {items.map((obj) => (
                   <div key={obj.id} className={itemStyles.container}>
                   <img
                     className={itemStyles.img}
+                    loading="eager"
                     src={obj.image}
                     alt={obj.description}
                   />
