@@ -15,19 +15,13 @@ export default function NewNav(props) {
   const [totalQuantity, setTotalQuantity] = useState(0);
 
   useEffect(() => {
-    let updatedCart = cart || [];
-    let quantity = 0;
-    updatedCart.forEach(item => {
-      quantity += item.quantity;
-    });
-    
-    if (typeof window !== 'undefined') {
-      const previousQuantity = parseInt(localStorage.getItem('quantity')) || 0;
-      localStorage.setItem('quantity', String(previousQuantity + quantity));
-      setTotalQuantity(previousQuantity + quantity);
+    if (cart === undefined || cart.length === 0 ||typeof window !== 'undefined') {
+        const cartItems = JSON.parse(localStorage.getItem('cartMemory')) || 0;
+        let combinedQuantity = cartItems.reduce((a,b) => a + b.quantity ,0)
+        setTotalQuantity(combinedQuantity);
     }
   }, [cart]);
-
+  
   return (
     <>
       <nav className={styles.firstNav}>

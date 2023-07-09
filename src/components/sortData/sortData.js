@@ -30,7 +30,7 @@ export default function SortedData(props) {
   
     return (
       <>
-        <NewNav />
+        <NewNav  />
         <div className={styles.sortNav}>
           <div className={styles.section}>
             <p className={styles.p}>Sort By</p>
