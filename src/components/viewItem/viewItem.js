@@ -11,7 +11,7 @@ export default function ViewItem() {
   const [cart, setCart] = useState([]);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const router = useRouter();
-
+ 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then((res) => res.json())
